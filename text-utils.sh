@@ -74,7 +74,9 @@ squeeze()   { args_or_stdin "$@" | tr '\t' ' ' | tr -s ' ' ; }
 # SEP can be multiple characters; for example ' ,' will split using both space
 # and comma.  By default, splitting is done by tabs.
 
-split_str() {
+split_str() { __split_str "$@" ; }
+
+__split_str() {
   echo "$1" | split_input "$2"
 }
 
